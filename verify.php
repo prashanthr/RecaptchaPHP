@@ -24,7 +24,6 @@ if(isset($_POST['g-recaptcha-response']))
 else
 {
   //Re-Captcha not solved
-  
 }
 
 function VerifyRecaptchaResponse($recaptchaResponse)
