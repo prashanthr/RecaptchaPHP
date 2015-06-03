@@ -6,6 +6,7 @@ include('constants.php')
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="recaptchaApi.js" />
 </head>
 <body>
