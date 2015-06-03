@@ -29,7 +29,7 @@ else
 function VerifyRecaptchaResponse($recaptchaResponse)
 {
   $iPAddress = $_SERVER['REMOTE_ADDR'];
-  $recaptchaVerificationUri = Constants::RECAPTCHA_VERIFY_URI."?secret=".Constants::RECAPTCHA_SECRET_KEY."&response=".$recaptchaResponse."&remoteip=".$iPAddress);
+  $recaptchaVerificationUri = Constants::RECAPTCHA_VERIFY_URI."?secret=".Constants::RECAPTCHA_SECRET_KEY."&response=".$recaptchaResponse."&remoteip=".$iPAddress;
   $recaptchaResponse=file_get_contents($recaptchaVerificationUri);
   if($recaptchaResponse.success==false)
   {
