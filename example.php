@@ -3,7 +3,7 @@
 /* github.com/prashanthr/RecaptchaPHP - Prashanth Rajaram */
 include('constants.php')
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript" src="recaptchaApi.js" />
