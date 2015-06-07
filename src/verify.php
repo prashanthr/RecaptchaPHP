@@ -11,19 +11,18 @@ if(isset($_POST['g-recaptcha-response']))
   if(isVerified)
   {
     //Re-captcha solved correctly. Proceed...
-    header('Location: '.$successPageUri);
-    die();
+    Redirect($successPageUri);    
   }
   else
   {
     //Re-captcha incorrect. Spammer alert!
-    header('Location: '.$previousPageUri);
-    die();
+    Redirect($previousPageUri);    
   }
 }
 else
 {
   //Re-Captcha not solved
+  Redirect($previousPageUri);
 }
 
 function VerifyRecaptchaResponse($recaptchaResponse)
@@ -37,4 +36,11 @@ function VerifyRecaptchaResponse($recaptchaResponse)
   }
   return false;
 }
+
+function Redirect($uri)
+{
+  header('Location: '.$uri);
+  die();
+}
+
 ?>
