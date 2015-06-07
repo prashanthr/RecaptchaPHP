@@ -15,6 +15,10 @@ include('constants.php')
       <input type="email" placeholder="Your e-mail" /><br>
       <input type="password" placeholder="Your password" /><br>
       <div class="g-recaptcha" data-sitekey="<?php echo Constants::RECAPTCHA_SITE_KEY  ?>"></div>
+      <!--BEGIN OPTIONAL INPUTS-->
+      <input type="hidden" name="successPage" value="http://www.google.com/" />
+      <input type="hidden" name="errorPage" value="http://www.google.com/error" />
+      <!--END OPTONAL INPUTS-->
       <input type="submit" name="submit" value="Login"><br><br>
     </form>
   </div>

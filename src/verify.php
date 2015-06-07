@@ -2,8 +2,24 @@
 /* verify.php */
 /* https://github.com/prashanthr/RecaptchaPHP - Prashanth Rajaram */
 include("constants.php");
-$previousPageUri = $_SERVER['HTTP_REFERER'];
-$successPageUri = $_SERVER['SERVER_NAME'];
+if(isset($_POST['successPage']))
+{
+  $successPageUri = $_POST['successPage'];
+}
+else
+{
+  $successPageUri = $_SERVER['SERVER_NAME'];
+}
+if(isset($_POST['errorPage']))
+{
+  $errorPageUri = $_POST['errorPage'];
+}
+else
+{
+  $previousPageUri = $_SERVER['HTTP_REFERER'];
+  $errorPageUri = $previousPageUri;
+}
+
 if(isset($_POST['g-recaptcha-response']))
 {
   $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -16,13 +32,13 @@ if(isset($_POST['g-recaptcha-response']))
   else
   {
     //Re-captcha incorrect. Spammer alert!
-    Redirect($previousPageUri);    
+    Redirect($errorPageUri);    
   }
 }
 else
 {
   //Re-Captcha not solved
-  Redirect($previousPageUri);
+  Redirect($errorPageUri);
 }
 
 function VerifyRecaptchaResponse($recaptchaResponse)
